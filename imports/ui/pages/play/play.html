@@ -1,0 +1,14 @@
+<Template name="Play">
+  <div class="page" id="play">
+
+
+    {{> GameBoard getGameBoardContext}}
+    {{> GameUI getGameUIContext}}
+
+
+    {{#if get 'is_game_panel_displayed'}}
+      {{> GamePanel }}
+    {{/if}}
+
+  </div>
+</Template>

@@ -1,0 +1,53 @@
+<Template name="GameBoard">
+  <div class="game-board">
+    <div class="board">
+      <div class="board-line">
+        <div class="board-case board-case-corner"></div>
+        {{#each col in getCol}}
+          <div class="board-case board-case-border"><div>{{col}}</div></div>
+        {{/each}}
+        <div class="board-case board-case-corner"></div>
+      </div>
+      <div class="board-col-border">
+        {{#each line in getLine}}
+          <div class="board-case board-case-border"><div>{{line}}</div></div>
+        {{/each}}
+      </div>
+      <div class="board-play-cases">
+        {{#each line in getLine}}
+          <div class="board-line">
+            {{#each col in getCol}}
+              {{#let piece=(getPiece col line)}}
+                <div data-position="{{col}}{{line}}" class="board-case
+                    {{#if piece}}board-case-with-piece board-case-with-piece-{{#if piece.color}}white{{else}}black{{/if}}{{/if}}
+                    {{#if isSelectedCase col line}}board-case-selected{{/if}}
+                    {{#if isInAvailableCase col line}}board-case-available{{/if}}
+                  ">
+                  {{#if piece}}
+                    <div class="piece piece-{{#if piece.color}}white{{else}}black{{/if}} piece-{{piece.type}}">
+                      {{{displayPiece piece col line}}}
+                    </div>
+                  {{/if}}
+                </div>
+              {{/let}}
+            {{/each}}
+          </div>
+        {{/each}}
+      </div>
+      <div class="board-col-border">
+        {{#each line in getLine}}
+          <div class="board-case board-case-border"><div>{{line}}</div></div>
+        {{/each}}
+      </div>
+      <div class="board-line">
+        <div class="board-case board-case-corner"></div>
+        {{#each col in getCol}}
+          <div class="board-case board-case-border"><div>{{col}}</div></div>
+        {{/each}}
+        <div class="board-case board-case-corner"></div>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="reverse-view">Reverse view</a>
+
+</Template>

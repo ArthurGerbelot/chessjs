@@ -1,0 +1,40 @@
+<template name="GameUI">
+  <div class="game-ui clearfix">
+    <div class="game-ui-white {{#if turn}}player-turn{{/if}}">
+      <div class="piece piece-white">&#9818;</div>
+      {{#if isCheck true}}
+        <strong>CHECK {{#if isCheckMate true}}MATE{{/if}}</strong>
+      {{else if isPate true}}
+        <strong>PATE</strong>
+      {{/if}}
+      <div class="player-type">
+        <label>
+          <input type="radio" name="player-type-W" value="human" checked="{{#if equals player_type_W 'human'}}checked{{/if}}"/>
+          Human
+        </label>
+        <label>
+          <input type="radio" name="player-type-W" value="computer"  checked="{{#if equals player_type_W 'computer'}}checked{{/if}}"/>
+          Computer
+        </label>
+      </div>
+    </div>
+    <div class="game-ui-black {{#if not turn}}player-turn{{/if}}">
+      <div class="piece piece-black">&#9818;</div>
+      {{#if isCheck false}}
+        <strong>CHECK {{#if isCheckMate false}}MATE{{/if}}</strong>
+      {{else if isPate false}}
+        <strong>PATE</strong>
+      {{/if}}
+      <div class="player-type">
+        <label>
+          <input type="radio" name="player-type-B" value="human" checked="{{#if equals player_type_B 'human'}}checked{{/if}}"/>
+          Human
+        </label>
+        <label>
+          <input type="radio" name="player-type-B" value="computer"  checked="{{#if equals player_type_B 'computer'}}checked{{/if}}"/>
+          Computer
+        </label>
+      </div>
+    </div>
+  </div>
+</template>

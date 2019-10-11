@@ -1,0 +1,32 @@
+.box {
+  background: #FFF;
+  border: 1px solid #ccc;
+  & > header {
+    padding: 5px 10px;
+    font-size: 1.4rem;
+  }
+  .box-content {
+    padding: 15px 25px;
+    .has-error{
+      .form-control{
+        border: 1px solid @ColorError;
+      }
+      .help-block{
+        color: @ColorError;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }

@@ -1,0 +1,157 @@
+@import "../../style/variables.import.less";
+@import "../../style/mixins.import.less";
+
+
+.game-board {
+
+  position: relative;
+
+  width: 80%;   /* desired width */
+  min-width: 250px;
+  max-width: 700px;
+
+  margin: auto;
+
+  /* Ratio 1:1 */
+  &:before {
+    content: "";
+    display: block;
+    padding-top: 100%;  /* initial ratio of 1:1*/
+  }
+
+
+  .board {
+    /*position: relative;
+    width: 500px;
+    height: 500px;
+    margin: auto;*/
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    .board-line  {
+      height: 10%;
+      width: 100%;
+    }
+
+    .board-case {
+      float: left;
+      width: 10%;
+      height: 100%;
+      display: flex;
+
+      & > div {
+        margin: auto;
+      }
+      position: relative;
+    }
+    .board-case-border {
+      color: @ColorLight;
+    }
+    .board-col-border {
+      width: 10%;
+      height: 80%;
+      float: left;
+      .board-case {
+        width: 100%;
+        height: 12.5%;
+      }
+    }
+
+    .board-play-cases {
+      width: 80%;
+      height: 80%;
+      float: left;
+
+      .board-line  {
+        height: 12.5%;
+      }
+      .board-case {
+        width: 12.5%;
+        cursor: pointer;
+      }
+      .board-line:nth-child(odd) {
+        .board-case:nth-child(odd) {
+          background: @ColorBoardWhite;
+        }
+        .board-case:nth-child(even) {
+          background: @ColorBoardBlack;
+        }
+      }
+      .board-line:nth-child(even) {
+        .board-case:nth-child(odd) {
+          background: @ColorBoardBlack;
+        }
+        .board-case:nth-child(even) {
+          background: @ColorBoardWhite;
+        }
+      }
+    }
+
+
+    .board-case.board-case-selected {
+      background: @ColorBoardSelected !important;
+    }
+
+    .board-case.board-case-available {
+
+      &.board-case-with-piece .piece {
+        color: @ColorBoardSelected;
+      }
+
+      &:not(.board-case-with-piece) {
+
+        &:before {
+          content: "";
+          position: absolute;
+          top: 33%;
+          left: 33%;
+          bottom: 33%;
+          right: 33%;
+          background-color: @ColorBoardSelected;
+          /*opacity: 0.5;*/
+          border-radius: 50%;
+          transition: all .5s;
+        }
+
+        &:hover:before {
+          top: 25%;
+          left: 25%;
+          bottom: 25%;
+          right: 25%;
+        }
+      }
+    }/*
+
+    .board-line:nth-child(odd) {
+      .board-case:nth-child(odd).board-case-available:before {
+        background: @ColorBoardAvailableDotWhite;
+      }
+      .board-case:nth-child(even).board-case-available:before {
+        background: @ColorBoardAvailableDotBlack;
+      }
+    }
+    .board-line:nth-child(even) {
+      .board-case:nth-child(odd).board-case-available:before {
+        background: @ColorBoardAvailableDotBlack;
+      }
+      .board-case:nth-child(even).board-case-available:before {
+        background: @ColorBoardAvailableDotWhite;
+      }
+    }*/
+  }
+
+  .piece {
+    pointer-events: none;
+    position: relative;
+    z-index: 3;
+  }
+
+  @media (max-width: 600px) {
+    .piece {
+      font-size: 1.5em;
+    }
+  }
+}

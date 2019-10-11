@@ -1,0 +1,44 @@
+@import "./variables.import.less";
+@import "./mixins.import.less";
+
+
+/* Global CSS - Only style (like colors) No helpers (like .icon-left or .box ...) */
+
+
+body {
+  font-family: 'Lato', 'Ubuntu', sans-serif !important;
+  background: @ColorBackground;
+  &, & a.no-color-update {
+    color: @Color;
+  }
+}
+h1, h2, h3, h4, h5, h6 {
+  /* font-family: 'Ubuntu', sans-serif !important; */
+  font-family: 'Satisfy', sans-serif !important;
+  font-weight: 400;
+  text-align: center;
+}
+h2 {
+  margin-top: 2em;
+}
+h3 {
+  color: @ColorLight;
+  font-size: 1.5em;
+  margin-top: 1em;
+}
+
+
+
+
+
+.piece {
+  font-size: 2.5em;
+  color: @ColorLight;
+
+  &.piece-white {
+    color: @ColorWhite;
+  }
+  &.piece-black {
+    color: @ColorBlack;
+  }
+}

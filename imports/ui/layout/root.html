@@ -1,0 +1,9 @@
+<Template name="Root">
+  <div id="root">
+    {{#if Template.subscriptionsReady}}
+      {{> Template.dynamic template=getLayout data=getData}}
+    {{else}}
+      <!-- {{> Loader}} -->
+    {{/if}}
+  </div>
+</Template>
